@@ -3,7 +3,7 @@ import classes from './NewPost.module.css'
 
 function NewPost(props) {
     return (
-        <form className="classes.form">
+        <form className={classes.form}>
             <p>
                 <label htmlFor="body">Text</label>
                 <textarea name="" id="body" required rows={3} onChange={props.changeBodyHandler}></textarea>
