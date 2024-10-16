@@ -10,16 +10,17 @@ function NewPost(props) {
     function bodyAuthorChange(event) {
         setname(event.target.value);
     }
-    function SubmitHandler(event){
+    function submitHandler(event){
         event.preventDefault();
         const postData={
             body:enteredBody,
             author: name,
         }
+        props.addPost(postData);
         props.onCancel();
     }
     return (
-        <form className={classes.form} onSubmit={SubmitHandler}>
+        <form className={classes.form} onSubmit={submitHandler}>
             <p>
                 <label htmlFor="body">Text</label>
                 <textarea name="" id="body" required rows={3} onChange={bodyHandler}></textarea>
@@ -30,7 +31,7 @@ function NewPost(props) {
             </p>
             <p className={classes.action}>
                <button type='button' onClick={props.onCancel}>Cancel</button>
-               <button>Submit</button>
+               <button >Submit</button>
             </p>
         </form>
     );
